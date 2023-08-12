@@ -107,7 +107,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Paros998 Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/Paros998/org.pg</url>
+            <url>https://maven.pkg.github.com/pg-personal-organization</url>
         </repository>
     </distributionManagement>
 
