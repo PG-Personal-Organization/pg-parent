@@ -107,7 +107,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Paros998 Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/Paros998/org.pg.pg-parent</url>
+            <url>https://maven.pkg.github.com/Paros998/org.pg</url>
         </repository>
     </distributionManagement>
 
