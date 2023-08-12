@@ -140,6 +140,11 @@
             <id>central</id>
             <url>https://repo1.maven.org/maven2</url>
         </repository>
+        <repository>
+            <id>github</id>
+            <name>GitHub Paros998 Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/pg-personal-organization</url>
+        </repository>
     </repositories>
 
 </project>
