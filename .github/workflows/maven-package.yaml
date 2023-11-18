@@ -30,7 +30,7 @@ jobs:
         id: bump
         uses: nnichols/maven-version-bump-action@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ github.token }}
 
       - name: Print Version
         run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
@@ -40,8 +40,12 @@ jobs:
         with:
           java-version: '20'
           distribution: 'adopt'
+          server-id: github
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
 
       - name: Publish package
-        run: mvn --batch-mode deploy
+        run: mvn deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
