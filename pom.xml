@@ -2,9 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>org.pg</groupId>
     <artifactId>pg-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
 
     <name>pg-parent</name>
@@ -16,51 +23,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Dependency versions - Spring & Spring Boot-->
-        <spring-framework-version>6.0.11</spring-framework-version>
-        <spring-boot-starter-version>3.1.2</spring-boot-starter-version>
+        <spring-framework-version>6.0.12</spring-framework-version>
+        <spring-boot-starter-version>3.1.4</spring-boot-starter-version>
 
         <!-- Dependency versions - 3rd party-->
         <kaczmarzyk-specification-version>2.6.3</kaczmarzyk-specification-version>
-        <springdoc-openapi-version>1.6.11</springdoc-openapi-version>
         <jwt-api-version>0.11.5</jwt-api-version>
         <ok-http-client-version>3.14.9</ok-http-client-version>
         <lombok-version>1.18.24</lombok-version>
         <logback-slf4j-version>1.2.11</logback-slf4j-version>
         <aws-lib-version>1.12.315</aws-lib-version>
-        <hibernate-jpa-version>1.0.0.Final</hibernate-jpa-version>
+        <spring-doc.version>2.1.0</spring-doc.version>
+        <mongo-embedded.version>4.7.0</mongo-embedded.version>
+        <apache-commons.version>3.13.0</apache-commons.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
-            <!-- Spring Framework-->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-framework-bom</artifactId>
-                <version>${spring-framework-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- Spring Boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot-starter-version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
             <!-- 3rd party libraries-->
             <dependency>
                 <groupId>net.kaczmarzyk</groupId>
                 <artifactId>specification-arg-resolver</artifactId>
                 <version>${kaczmarzyk-specification-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springdoc</groupId>
-                <artifactId>springdoc-openapi-ui</artifactId>
-                <version>${springdoc-openapi-version}</version>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
@@ -98,9 +82,24 @@
                 <version>${aws-lib-version}</version>
             </dependency>
             <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.1-api</artifactId>
-                <version>${hibernate-jpa-version}</version>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>${spring-doc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-common</artifactId>
+                <version>${spring-doc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.flapdoodle.embed</groupId>
+                <artifactId>de.flapdoodle.embed.mongo.spring30x</artifactId>
+                <version>${mongo-embedded.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons.version}</version>
             </dependency>
 
         </dependencies>
@@ -111,17 +110,39 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.6.0</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
                 <configuration>
                     <source>${java-version}</source>
                     <target>${java-version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <excludeGroupIds>de.flapdoodle,de.flapdoodle.embed,de.flapdoodle.graph,
+                                de.flapdoodle.java8,de.flapdoodle.reverse</excludeGroupIds>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
