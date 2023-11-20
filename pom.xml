@@ -31,7 +31,6 @@
         <jwt-api-version>0.11.5</jwt-api-version>
         <ok-http-client-version>3.14.9</ok-http-client-version>
         <lombok-version>1.18.24</lombok-version>
-        <logback-slf4j-version>1.2.11</logback-slf4j-version>
         <aws-lib-version>1.12.315</aws-lib-version>
         <spring-doc.version>2.1.0</spring-doc.version>
         <mongo-embedded.version>4.7.0</mongo-embedded.version>
@@ -70,11 +69,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback-slf4j-version}</version>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
