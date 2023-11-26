@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: 
       contents: read
-      packages: write,read 
+      packages: write
     steps:
       - name: Checkout Latest Commit
         uses: actions/checkout@v3
