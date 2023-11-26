@@ -11,7 +11,7 @@
 
     <groupId>org.pg</groupId>
     <artifactId>pg-parent</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>pom</packaging>
 
     <name>pg-parent</name>
@@ -25,6 +25,7 @@
         <!-- Dependency versions - Spring & Spring Boot-->
         <spring-framework-version>6.0.12</spring-framework-version>
         <spring-boot-starter-version>3.1.4</spring-boot-starter-version>
+        <spring-cloud.version>2022.0.4</spring-cloud.version>
 
         <!-- Dependency versions - 3rd party-->
         <kaczmarzyk-specification-version>2.6.3</kaczmarzyk-specification-version>
@@ -39,6 +40,14 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- 3rd party libraries-->
             <dependency>
                 <groupId>net.kaczmarzyk</groupId>
