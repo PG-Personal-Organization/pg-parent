@@ -21,19 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions: 
       contents: read
-      packages: write 
+      packages: write,read 
     steps:
       - name: Checkout Latest Commit
         uses: actions/checkout@v3
-        
-      - name: Bump Version
-        id: bump
-        uses: nnichols/maven-version-bump-action@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Print Version
-        run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
         
       - name: Setup Java
         uses: actions/setup-java@v3
