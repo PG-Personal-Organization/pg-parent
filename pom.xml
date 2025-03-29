@@ -28,11 +28,11 @@
         <spring-cloud.version>2022.0.4</spring-cloud.version>
 
         <!-- Dependency versions - 3rd party-->
-        <kaczmarzyk-specification-version>2.6.3</kaczmarzyk-specification-version>
-        <jwt-api-version>0.12.3</jwt-api-version>
-        <ok-http-client-version>4.12.0</ok-http-client-version>
-        <lombok-version>1.18.34</lombok-version>
-        <aws-lib-version>1.12.315</aws-lib-version>
+        <kaczmarzyk-specification.version>2.6.3</kaczmarzyk-specification.version>
+        <jwt-api.version>0.12.3</jwt-api.version>
+        <ok-http-client.version>4.12.0</ok-http-client.version>
+        <lombok.version>1.18.34</lombok.version>
+        <aws-lib.version>1.12.315</aws-lib.version>
         <spring-doc.version>2.6.0</spring-doc.version>
         <mongo-embedded.version>4.11.0</mongo-embedded.version>
         <apache-commons.version>3.17.0</apache-commons.version>
@@ -52,37 +52,37 @@
             <dependency>
                 <groupId>net.kaczmarzyk</groupId>
                 <artifactId>specification-arg-resolver</artifactId>
-                <version>${kaczmarzyk-specification-version}</version>
+                <version>${kaczmarzyk-specification.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-api</artifactId>
-                <version>${jwt-api-version}</version>
+                <version>${jwt-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-impl</artifactId>
-                <version>${jwt-api-version}</version>
+                <version>${jwt-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt-jackson</artifactId>
-                <version>${jwt-api-version}</version>
+                <version>${jwt-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
-                <version>${ok-http-client-version}</version>
+                <version>${ok-http-client.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>${lombok-version}</version>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk</artifactId>
-                <version>${aws-lib-version}</version>
+                <version>${aws-lib.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springdoc</groupId>
@@ -122,6 +122,13 @@
                     <source>${java-version}</source>
                     <target>${java-version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
 
