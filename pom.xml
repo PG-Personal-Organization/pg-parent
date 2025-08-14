@@ -34,7 +34,8 @@
         <lombok.version>1.18.34</lombok.version>
         <aws-lib.version>1.12.315</aws-lib.version>
         <spring-doc.version>2.6.0</spring-doc.version>
-        <mongo-embedded.version>4.11.0</mongo-embedded.version>
+        <mongo-embedded.version>4.7.0</mongo-embedded.version>
+        <hypersistence.version>3.8.0</hypersistence.version>
         <apache-commons.version>3.17.0</apache-commons.version>
     </properties>
 
@@ -93,6 +94,11 @@
                 <groupId>org.springdoc</groupId>
                 <artifactId>springdoc-openapi-starter-common</artifactId>
                 <version>${spring-doc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.hypersistence</groupId>
+                <artifactId>hypersistence-utils-hibernate-62</artifactId>
+                <version>${hypersistence.version}</version>
             </dependency>
             <dependency>
                 <groupId>de.flapdoodle.embed</groupId>
