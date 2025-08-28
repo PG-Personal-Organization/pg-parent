@@ -26,15 +26,6 @@ jobs:
       - name: Checkout Latest Commit
         uses: actions/checkout@v4
 
-      - name: Bump Version
-        id: bump
-        uses: nnichols/maven-version-bump-action@v3
-        with:
-          github-token: ${{ github.token }}
-
-      - name: Print Version
-        run: "echo 'New Version: ${{steps.bump.outputs.version}}'"
-
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
