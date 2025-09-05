@@ -11,7 +11,7 @@
 
     <groupId>org.pg</groupId>
     <artifactId>parent</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0</version>
     <packaging>pom</packaging>
 
     <name>pg.parent</name>
@@ -36,6 +36,9 @@
         <spring-doc.version>2.6.0</spring-doc.version>
         <mongo-embedded.version>4.7.0</mongo-embedded.version>
         <apache-commons.version>3.17.0</apache-commons.version>
+        <hibernate-core.version>6.5.3.Final</hibernate-core.version>
+        <hibernate-utils.version>3.9.0</hibernate-utils.version>
+        <beanio.version>2.1.0</beanio.version>
     </properties>
 
     <dependencyManagement>
@@ -103,6 +106,21 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${apache-commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.hypersistence</groupId>
+                <artifactId>hypersistence-utils-hibernate-60</artifactId>
+                <version>${hibernate-utils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.beanio</groupId>
+                <artifactId>beanio</artifactId>
+                <version>${beanio.version}</version>
             </dependency>
 
         </dependencies>
