@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.4</version>
+        <version>4.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.pg</groupId>
     <artifactId>parent</artifactId>
-    <version>2.1.2</version>
+    <version>3.0.0</version>
     <packaging>pom</packaging>
 
     <name>pg.parent</name>
@@ -19,26 +19,42 @@
     <url>https://maven.apache.org</url>
 
     <properties>
-        <java-version>21</java-version>
+        <java-version>25</java-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- Dependency versions - Spring & Spring Boot-->
-        <spring-framework-version>6.2.5</spring-framework-version>
-        <spring-boot-starter-version>3.4.4</spring-boot-starter-version>
-        <spring-cloud.version>2024.0.1</spring-cloud.version>
+        <!-- Spring & Spring Boot-->
+        <spring-framework-version>7.0.8</spring-framework-version>
+        <spring-boot-starter-version>4.1.0</spring-boot-starter-version>
+        <spring-cloud.version>2025.1.2</spring-cloud.version>
 
-        <!-- Dependency versions - 3rd party-->
-        <kaczmarzyk-specification.version>2.6.3</kaczmarzyk-specification.version>
-        <jwt-api.version>0.12.3</jwt-api.version>
-        <ok-http-client.version>4.12.0</ok-http-client.version>
-        <lombok.version>1.18.34</lombok.version>
-        <aws-lib.version>1.12.315</aws-lib.version>
-        <spring-doc.version>2.6.0</spring-doc.version>
-        <mongo-embedded.version>4.7.0</mongo-embedded.version>
-        <apache-commons.version>3.17.0</apache-commons.version>
-        <hibernate-core.version>6.5.3.Final</hibernate-core.version>
-        <hibernate-utils.version>3.9.0</hibernate-utils.version>
+        <!-- Hibernate -->
+        <hibernate-core.version>7.4.5.Final</hibernate-core.version>
+        <hibernate-utils.version>3.9.4</hibernate-utils.version>
+
+        <!-- Spring Doc -->
+        <spring-doc.version>3.1.0</spring-doc.version>
+
+        <!-- MONGO -->
+        <mongo-embedded.version>4.22.0</mongo-embedded.version>
+
+        <!-- AWS -->
+        <aws-lib.version>1.12.797</aws-lib.version>
+
+        <!-- JWT -->
+        <jwt-api.version>0.13.0</jwt-api.version>
+
+        <!-- HTTP -->
+        <ok-http-client.version>5.4.0</ok-http-client.version>
+
+        <!-- COMMONS -->
+        <apache-commons.version>3.20.0</apache-commons.version>
         <beanio.version>2.1.0</beanio.version>
+
+        <!-- POSTPROCESSORS -->
+        <lombok.version>1.18.46</lombok.version>
+
+        <!-- UTILS -->
+        <kaczmarzyk-specification.version>2.6.3</kaczmarzyk-specification.version>
     </properties>
 
     <dependencyManagement>
@@ -131,13 +147,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.15.0</version>
                 <configuration>
                     <source>${java-version}</source>
                     <target>${java-version}</target>
